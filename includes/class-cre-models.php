@@ -4,16 +4,22 @@ namespace CleverreachExtension\Core;
 
 use CleverreachExtension\Core\Api;
 
-defined( 'ABSPATH' ) or die();
-
+/**
+ * Register and parse shortcode and also plugin integrations.
+ *
+ * @since      0.1.0
+ * @package    Cleverreach_Extension
+ * @subpackage Cleverreach_Extension/includes
+ * @author     Sven Hofmann <info@hofmannsven.com>
+ */
 class Cre_Models {
 
+	/**
+	 * Init plugin shortcode.
+	 *
+	 * @since 0.1.0
+	 */
 	public function init_shortcodes() {
-
-		// Add support for Visual Composer plugin.
-		if ( function_exists( 'vc_map' ) ) {
-			require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/supports/visual-composer.php';
-		}
 
 		add_shortcode(
 			'cleverreach_extension',
@@ -22,15 +28,24 @@ class Cre_Models {
 
 	}
 
+	/**
+	 * Parse shortcode parameters.
+	 *
+	 * @since 0.1.0
+	 * @param $params
+	 *
+	 * @return string
+	 */
 	public function parse_shortcode( $params ) {
 
+		$helper = new Cre_Helper();
 		$client = new Api\Cleverreach();
-		$form = new Api\Cleverreach_Form_Adapter( $client );
+		$form   = new Api\Cleverreach_Form_Adapter( $client );
 
 		// Parse shortcode attributes.
 		$atts = shortcode_atts(
 			array(
-				'form_id' => $client->get_option( 'form_id' ),
+				'form_id' => $helper->get_option( 'form_id' ),
 			), $params, 'cleverreach_extension'
 		);
 

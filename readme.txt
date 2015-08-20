@@ -1,20 +1,21 @@
 === CleverReach Extension ===
+
 Contributors: hofmannsven
-Tags: cleverreach, email, newsletter, sign-up, opt-in, form
+Tags: cleverreach, email, newsletter, sign-up, opt-in, form, ajax
 
 Requires at least: 4.0
-Tested up to: 4.2.2
-Stable tag: 0.1.0
+Tested up to: 4.3
+Stable tag: 0.2.0
 
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.txt
 
-Simple interface for [CleverReach](http://www.cleverreach.com/) newsletter software using the official CleverReach SOAP API.
+Simple interface for CleverReach newsletter software using the official CleverReach SOAP API.
 
 
 == Description ==
 
-The CleverReach Extension for WordPress provides an easy way to embed your CleverReach sign-up form anywhere on your website.
+The CleverReach Extension for WordPress provides an easy way to embed your CleverReach](http://www.cleverreach.com/) sign-up form anywhere on your website.
 
 = Features =
 * Easily embed your CleverReach sign-up form anywhere on your website
@@ -22,26 +23,38 @@ The CleverReach Extension for WordPress provides an easy way to embed your Cleve
 * Smooth form submission using Ajax (no page reload)
 * Optional: Customize your form and error messages via filters (Check the [Wiki](https://github.com/hofmannsven/cleverreach-extension/wiki) for available filters)
 
-= Coming soon =
+= Looking ahead =
 * Unsubscribe form
 * Support for WordPress Widgets
-* PHPUnit Tests
+* [PHPUnit](https://phpunit.de/) Tests
 
 = Languages =
 * English
 * German
+* Spanish
+* Russian
 
 = Integrations =
-* Coming soon: Visual Composer
-* Coming soon: Contact Form 7
+* [Visual Composer](http://vc.wpbakery.com/)
+* Coming soon: [Contact Form 7](http://contactform7.com/)
 
 
 == Installation ==
 
 = Requirements =
+Using the latest version of WordPress and PHP is highly recommended.
+
+* WordPress 4.0 or newer
 * PHP 5.3.0 or newer
 * PHP SOAP extension
 * CleverReach API key
+
+= Using WP-CLI =
+1. Install and activate: `wp plugin install cleverreach-extension --activate`
+
+= Using Composer =
+1. Install: `composer create-project hofmannsven/cleverreach-extension --stability=dev`
+2. Activate the plugin on the plugin dashboard
 
 = Using the WordPress dashboard =
 1. Navigate to the 'Add New' in the plugins dashboard
@@ -52,7 +65,7 @@ The CleverReach Extension for WordPress provides an easy way to embed your Cleve
 = Using FTP =
 1. Unzip the download package
 2. Upload `cleverreach-extension` folder to your plugins directory
-3. Activate the plugin through the 'Plugins' menu in WordPress
+3. Activate the plugin on the plugin dashboard
 
 
 == Support ==
@@ -67,8 +80,11 @@ Using the API will allow you to push and pull data from CleverReach.
 This allows things like smooth form submission via Ajax and custom error handling.
 
 = Is it secure? =
-We heavily rely on the built in security tokens (nonces) which helps to protect against several types of attacks including CSRF.
-Moreover no customer data is stored within your WordPress database.
+No customer data is stored within your WordPress database. 
+We heavily rely on the security of CleverReach which is [tested and verified](http://www.cleverreach.com/security) according to German standards.
+
+= Having problems with the PHP SOAP Extension? =
+Check the [PHP SOAP wiki page](https://github.com/hofmannsven/cleverreach-extension/wiki/PHP-SOAP-Extension) for further information.
 
 = How can I customize the sign-up form or the error messages? =
 Check the [Wiki](https://github.com/hofmannsven/cleverreach-extension/wiki) for further information.
@@ -77,10 +93,21 @@ Check the [Wiki](https://github.com/hofmannsven/cleverreach-extension/wiki) for 
 See [CleverReach Extension on Github](https://github.com/hofmannsven/cleverreach-extension) for a detailed rundown of common issues.
 
 = Where can I get more information and support for this plugin? =
-Visit [CleverReach Extension on Github](https://github.com/hofmannsven/cleverreach-extension)
+Follow [CleverReach Extension on Github](https://github.com/hofmannsven/cleverreach-extension)
+
+
+== Screenshots ==
+
+1. Animated screenshot of the plugin admin settings page
 
 
 == Changelog ==
+
+= 0.2.0 =
+* Reworked admin interaction
+* Spanish & Russian translation
+* Visual Composer plugin integration
+* Better file handling, code cleanup and documentation
 
 = 0.1.0 =
 * Initial release
